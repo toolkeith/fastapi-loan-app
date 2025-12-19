@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Admin Reports</h2>
+    <p>Total Users: {{ total_users }}</p>
+    <p>Total Loans: {{ total_loans_count }}</p>
+    
+    <h3>Registered Users</h3>
+    <ul>
+    {% for user in user_list %}
+        <li>{{ user.name }} (ID: {{ user.id }})</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
