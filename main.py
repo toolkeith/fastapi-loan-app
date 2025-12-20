@@ -105,6 +105,6 @@ def login_user(
     user = db.query(models.User).filter(models.User.username == username).first()
     
     if not user:
-        return {"error": "User not found (checked Slave DB)"}
-        
-    return {"message": f"Welcome back, {user.firstname}. Read from Slave DB."}
+       return HTMLResponse(content="<h3>Error: User not found (Checked Slave DB)</h3><a href='/login'>Try Again</a>", status_code=400) 
+   
+    return HTMLResponse(content=f"<h3>Welcome back, {user.firstname}!</h3><p>Data read from Slave DB (Port 3307).</p>")
