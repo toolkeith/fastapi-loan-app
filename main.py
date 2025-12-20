@@ -46,6 +46,11 @@ def landing_page(request: Request):
 def register_page(request: Request):
     return templates.TemplateResponse("register.html", {"request": request})
 
+# Login Page (l.toolkeith.com) - Missing GET Route
+@app.get("/login", response_class=HTMLResponse)
+def login_page(request: Request):
+    return templates.TemplateResponse("login.html", {"request": request})
+
 # Reports Page (bi.toolkeith.com) - CSV says: Master
 @app.get("/reports", response_class=HTMLResponse)
 def report_page(request: Request, db: Session = Depends(get_db_master)):
